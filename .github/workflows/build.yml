@@ -19,20 +19,22 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    - name: Instalar dependencias de Linux
+    - name: Instalar dependencias del sistema
       run: |
         sudo apt update
         sudo apt install -y build-essential git ffmpeg libsdl2-dev libsdl2-image-dev \
           libsdl2-ttf-dev libsdl2-mixer-dev libportmidi-dev libswscale-dev \
-          libavformat-dev libavcodec-dev zlib1g-dev unzip autoconf libtool pkg-config
-        pip install --user --upgrade buildozer docutils Cython
+          libavformat-dev libavcodec-dev zlib1g-dev unzip autoconf libtool pkg-config \
+          python3-pip python3-setuptools ccache libffi-dev libssl-dev
+        python3 -m pip install --upgrade pip
+        python3 -m pip install "cython<3.0.0" buildozer docutils
 
     - name: Compilar APK con Buildozer
       run: |
-        buildozer -v android debug
+        yes | buildozer -v android debug
 
     - name: Subir APK como artefacto
       uses: actions/upload-artifact@v4
       with:
         name: EntrenadorPiano-APK
-        path: bin/*.apk*.apk
+        path: bin/*.apk
