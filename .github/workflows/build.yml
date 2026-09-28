@@ -31,10 +31,14 @@ jobs:
 
     - name: Compilar APK con Buildozer
       run: |
+        export PATH=$PATH:~/.local/bin
         yes | buildozer -v android debug
 
     - name: Subir APK como artefacto
       uses: actions/upload-artifact@v4
+      with:
+        name: EntrenadorPiano-APK
+        path: bin/*.apk
       with:
         name: EntrenadorPiano-APK
         path: bin/*.apk
