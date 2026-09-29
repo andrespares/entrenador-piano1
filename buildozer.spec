@@ -42,7 +42,7 @@ android.minapi = 24
 android.ndk = 25b
 
 # (bool) If True, then skip trying to update the Android sdk apps
-android.skip_update = True
+android.skip_update = False
 
 # (bool) If True, then accept all SDK licenses
 android.accept_sdk_license = True
