@@ -1,3 +1,4 @@
+
 name: Compilar APK Android
 
 on:
@@ -33,6 +34,11 @@ jobs:
           
           pip install --upgrade pip
           pip install "cython<3.0.0" buildozer
+
+      - name: Limpiar carpetas de compilación previas
+        run: |
+          rm -rf .buildozer/
+          rm -rf bin/
 
       - name: Compilar APK con Buildozer
         run: |
