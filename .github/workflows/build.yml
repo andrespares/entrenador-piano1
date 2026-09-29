@@ -29,10 +29,15 @@ jobs:
         python3 -m pip install --upgrade pip
         python3 -m pip install "cython<3.0.0" buildozer docutils
 
+    - name: Aceptar licencias de Android SDK
+      run: |
+        mkdir -p ~/.android
+        touch ~/.android/repositories.cfg
+
     - name: Compilar APK con Buildozer
       run: |
         export PATH=$PATH:~/.local/bin
-        yes | buildozer -v android debug
+        buildozer -v android debug
 
     - name: Subir APK como artefacto
       uses: actions/upload-artifact@v4
