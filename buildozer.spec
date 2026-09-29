@@ -20,7 +20,7 @@ version = 1.0.0
 
 # (list) Application requirements
 # NOTA: Usamos kivy, mido y pyjnius para compatibilidad total con Android 16/33
-requirements = python3, kivy, mido, pyjnius
+requirements = python3==3.11.0, kivy==2.3.0, mido, pyjnius
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = landscape
