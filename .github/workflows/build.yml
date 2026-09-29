@@ -39,6 +39,3 @@ jobs:
       with:
         name: EntrenadorPiano-APK
         path: bin/*.apk
-      with:
-        name: EntrenadorPiano-APK
-        path: bin/*.apk
